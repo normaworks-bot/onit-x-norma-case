@@ -160,7 +160,13 @@
       -webkit-overflow-scrolling:touch;padding-top:calc(var(--pad) + 34px)}
     .found-head{margin-top:34px}
     #answer,#quotes,#voice,#naming,#line{padding-top:calc(var(--pad) + 30px)}
-    .marq-item{box-shadow:0 4px 20px rgba(20,18,18,.12)}
+    /* marquee: on a narrow screen the tiles were sized by height, so a 16:9 piece came
+       out ~920 px wide in a 390 px window and you only ever saw a slab of one image.
+       Size by WIDTH here instead, so a whole piece is always in frame. The head stays
+       at the top like every other slide; the shorter row centres itself in the band. */
+    .marq-track{height:auto;animation-duration:26s}
+    .marq-item{height:auto;width:min(90vw,460px);box-shadow:0 4px 20px rgba(20,18,18,.12)}
+    .marq-item img,.marq-item video{width:100%;height:auto}
   }
 </style>
 </head>
